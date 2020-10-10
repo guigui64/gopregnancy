@@ -1,0 +1,20 @@
+body {
+    font-family: 'Roboto Slab';
+    font-size: 22px;
+    padding: 20px 15%;
+    background-color: #f9e3bc;
+    color: #ab7615;
+}
+
+h1 {
+    color: #8c6111;
+}
+
+#coded {
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+    background-color: black;
+    color: limegreen;
+    display: inline-block;
+    margin-bottom: 22px;
+}
