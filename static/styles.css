@@ -10,11 +10,24 @@ h1 {
     color: #8c6111;
 }
 
-#coded {
+.coded {
     font-family: 'VT323', monospace;
     font-size: 30px;
     background-color: black;
     color: limegreen;
     display: inline-block;
+}
+
+.with-margin {
     margin-bottom: 22px;
+}
+
+.wrong {
+    text-align: center;
+    color: red;
+}
+
+.good {
+    text-align: center;
+    color: green;
 }

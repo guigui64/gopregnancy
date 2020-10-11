@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Enigma - {{.User}}</title>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link href='/static/styles.css' rel='stylesheet'>
+    </head>
+    <body>
+        <h2 class="animate__animated animate__tada good">Bien joué {{.User}} !!</h2>
+        <p class="animate__animated animate__fadeInLeft">Tu as trouvé la bonne réponse ! J'ai toujours cru en toi :)</p>
+        <div class="animate__animated animate__fadeInRight coded">{{.DecodedMessage}}</div>
+        <p class="animate__animated animate__fadeInLeft">Ton code est donc <strong>{{.Offset}}</strong></p>
+        <p class="animate__animated animate__fadeInRight">Il faut maintenant faire équipe pour trouver le mot de passe suivant. Vous le trouverez en assemblant vos codes dans l'ordre dans lequel vos prénoms apparaissent dans la vidéo de l'EVG.</p>
+        <form class="animate__animated animate__fadeInUp">
+            <label for="guess">Mot de passe :</label>
+            <input type="password" id="guess" name="guess">
+            <input type="submit" value="OK">
+        </form>
+    </body>
+</html>
