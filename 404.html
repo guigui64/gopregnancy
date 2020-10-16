@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Enigma - {{.User}}</title>
+    <title>Not found</title>
     <meta charset="UTF-8" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto Slab"
@@ -40,23 +40,19 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <h2 class="animate__animated animate__wobble wrong">Mauvaise réponse !</h2>
-    <p class="animate__animated animate__fadeInLeft">
-      {{if eq .CurrentStep 0}}
-        {{.Guess}} ? Ça ne veut rien dire ! Tu as dû te tromper dans ton calcul, essaye encore !
-      {{else if eq .CurrentStep 1}}
-        {{.Guess}} n'est pas le bon mot de passe. Avez-vous bien fait attention à l'ordre d'apparition des <strong>prénoms</strong> dans la vidéo ? Essayez encore !
-      {{else}}
-        {{.Guess}} n'est pas le bon mot de passe. Vous avez dû vous tromper dans les calculs. Un indice: 27/02 =&gt; -3/+5
-      {{end}}
+    <h1 class="animate__animated animate__flipInX" style="text-align: center;">
+      Page not found
+    </h1>
+    <p
+      class="animate__animated animate__zoomIn"
+      style="text-align: center; font-size: 100;"
+    >
+      🤷
     </p>
-    <p class="animate__animated animate__fadeInUp">
-      <button onclick="goBack()">Retour</button>
+    {{with .}}
+    <p>
+      Reason is: <i>{{.}}</i>
     </p>
-    <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script>
+    {{end}}
   </body>
 </html>

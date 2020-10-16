@@ -4,6 +4,23 @@ III Jérome j3j3ad930d57 LE COWBOY DANS LA VILLE Paroles
 IV Yankel y4nk3383f2dd MON COACH SPORTIF Force pure
 V Nicolas n1c0d659c10e ROLLING IN THE DEEP Collaboration artistique
 
-Last password: 2215210819
-22 15 21 08 19
+Step 0 - Find the code
+I 15
+II 21
+III 19
+IV 08
+V 22
+
+Step 1 - EVG order
 Order: V I II IV III
+22 15 21 08 19
+Password: 2215210819
+
+Step 2 - Birthday shift
+I 27/02 => -3/+5 => +2 => 17
+II 11/08 => +13/-1 => +12 => 33
+III 22/03 => +2/+4 => +6 => 25
+IV 01/07 => +23/+0 => +23 => 31
+V 05/05 => +19/+2 => +21 => 43
+43 17 33 31 25
+Password: 4317333125

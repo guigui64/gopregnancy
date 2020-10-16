@@ -7,6 +7,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
@@ -40,23 +44,27 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <h2 class="animate__animated animate__wobble wrong">Mauvaise réponse !</h2>
+    <h2 class="animate__animated animate__tada good">Bien joué {{.User}} !!</h2>
     <p class="animate__animated animate__fadeInLeft">
-      {{if eq .CurrentStep 0}}
-        {{.Guess}} ? Ça ne veut rien dire ! Tu as dû te tromper dans ton calcul, essaye encore !
-      {{else if eq .CurrentStep 1}}
-        {{.Guess}} n'est pas le bon mot de passe. Avez-vous bien fait attention à l'ordre d'apparition des <strong>prénoms</strong> dans la vidéo ? Essayez encore !
-      {{else}}
-        {{.Guess}} n'est pas le bon mot de passe. Vous avez dû vous tromper dans les calculs. Un indice: 27/02 =&gt; -3/+5
-      {{end}}
+      Tu as trouvé la bonne réponse ! J'ai toujours cru en toi :)
     </p>
-    <p class="animate__animated animate__fadeInUp">
-      <button onclick="goBack()">Retour</button>
+    <div class="animate__animated animate__fadeInRight coded">
+      {{.DecodedMessage}}
+    </div>
+    <p class="animate__animated animate__fadeInLeft">
+      Ton code est donc <strong>{{.Offset | printf "%02d"}}</strong>
     </p>
-    <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script>
+    <p class="animate__animated animate__fadeInRight">
+      Il faut maintenant faire équipe pour trouver le mot de passe suivant. Vous
+      le trouverez en assemblant vos codes dans l'ordre dans lequel vos prénoms
+      apparaissent dans la vidéo de l'EVG.
+    </p>
+    <form class="animate__animated animate__fadeInUp">
+      <input type="hidden" name="user" value="{{.Code}}" />
+      <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
+      <label for="guess">Mot de passe :</label>
+      <input type="password" id="guess" name="guess" />
+      <input type="submit" value="OK" />
+    </form>
   </body>
 </html>

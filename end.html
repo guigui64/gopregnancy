@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Enigma - {{.User}}</title>
+    <title>Enigma - Surprise</title>
     <meta charset="UTF-8" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto Slab"
@@ -40,22 +40,30 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <h2 class="animate__animated animate__wobble wrong">Mauvaise réponse !</h2>
+    <h1 class="animate__animated animate__fadeInDown">
+      Félicitations les guindouls !!!
+    </h1>
     <p class="animate__animated animate__fadeInLeft">
-      {{if eq .CurrentStep 0}}
-        {{.Guess}} ? Ça ne veut rien dire ! Tu as dû te tromper dans ton calcul, essaye encore !
-      {{else if eq .CurrentStep 1}}
-        {{.Guess}} n'est pas le bon mot de passe. Avez-vous bien fait attention à l'ordre d'apparition des <strong>prénoms</strong> dans la vidéo ? Essayez encore !
-      {{else}}
-        {{.Guess}} n'est pas le bon mot de passe. Vous avez dû vous tromper dans les calculs. Un indice: 27/02 =&gt; -3/+5
-      {{end}}
+      Vous avez été exceptionels ! Vous méritez donc bien votre récompense.
     </p>
-    <p class="animate__animated animate__fadeInUp">
-      <button onclick="goBack()">Retour</button>
+    <p class="animate__animated animate__fadeInRight">
+      <button onclick="showSurprise()">
+        La surprise, la surprise, la surprise !
+      </button>
     </p>
+    <div class="animate__animated animate__fadeInUp" id="surprise">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYtfZRhbGQtq2BapB2MXJfWIO2QriO5Wx3qQ&usqp=CAU"
+        alt="surprise"
+      />
+      <p>👶 Naissance prévue le 02 mai 2021 😀</p>
+    </div>
     <script>
-      function goBack() {
-        window.history.back();
+      function showSurprise() {
+        document.getElementById("surprise").style.display = "block";
+        document
+          .getElementsByTagName("button")[0]
+          .setAttribute("disabled", "true");
       }
     </script>
   </body>

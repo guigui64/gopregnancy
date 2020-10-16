@@ -31,3 +31,8 @@ h1 {
     text-align: center;
     color: green;
 }
+
+#surprise {
+    display: none;
+    text-align: center;
+}
