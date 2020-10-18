@@ -44,28 +44,32 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <h2 class="animate__animated animate__tada good">Bien joué les guindouls !!</h2>
+    <h1 class="animate__animated animate__fadeInDown">
+      Bienvenue {{.User}}, es-tu prêt à résoudre mon énigme ?
+    </h1>
     <p class="animate__animated animate__fadeInLeft">
-      Vous avez trouvé le bon ordre. J'espère que vous avez bien profité de ce revisionnage ! Et que vous êtes restés jusqu'au bout pour le bonus 💃 Encore merci pour cet EVG de folie et mention spéciale à Nico pour la vidéo, elle est top !!
+      Pour y arriver, tu devras d'abord découvrir <strong>ta</strong> pièce du
+      puzzle ici. Il faudra ensuite faire équipe avec les autres pour la
+      résoudre <strong>ensemble</strong> !
     </p>
-    <div class="animate__animated animate__fadeInRight coded">
-      +Nicolas +Zahi +Thomas +Yankel +Jérome
+    <p class="animate__animated animate__fadeInRight">
+      Le message suivant a été encodé en décallant les lettres de l'alphabet.
+      Trouves le décalage qu'il faut appliquer pour retomber sur le message
+      initial qui est un groupe nominal qui te caractérise ou bien qui fait
+      référence à un fait commun à nous deux... La réponse doit se trouver entre
+      1 et 24.
+    </p>
+    <p class="animate__animated animate__fadeInLeft">
+      <i>Indice: {{.Tip}}</i>
+    </p>
+    <div class="animate__animated animate__fadeInRight coded with-margin">
+      {{.CodedMessage}}
     </div>
-    <p class="animate__animated animate__fadeInLeft">
-      Mais ce n'est pas fini. Vous devez trouver le prochain mot de passe en conservant le même ordre mais en recalculant vos codes respectifs. Pour ce faire, vous devrez trouver la formule qui permet de passer de votre ancien code au nouveau en sachant que :
-    </p>
-    <div class="animate__animated animate__fadeInRight coded">
-      Zahi: 22 =&gt; 17<br>
-      Thomas: 15 =&gt; 33
-    </div>
-    <p class="animate__animated animate__fadeInLeft">
-      <i>Indice: Jour/Mois de naissance.</i>
-    </p>
     <form class="animate__animated animate__fadeInUp">
       <input type="hidden" name="user" value="{{.Code}}" />
       <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
-      <label for="guess">Mot de passe :</label>
-      <input type="password" id="guess" name="guess" />
+      <label for="guess">Décalage :</label>
+      <input type="number" id="guess" name="guess" />
       <input type="submit" value="Envoyer" />
     </form>
   </body>

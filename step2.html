@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Enigma - {{.User}}</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Slab"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/static/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/static/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/static/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <h2 class="animate__animated animate__tada good">Bien joué les guindouls !!</h2>
+    <p class="animate__animated animate__fadeInLeft">
+      Vous avez trouvé le bon ordre. J'espère que vous avez bien profité de ce revisionnage ! Et que vous êtes restés jusqu'au bout pour le bonus 💃 Encore merci pour cet EVG de folie et mention spéciale à Nico pour la vidéo, elle est top !!
+    </p>
+    <div class="animate__animated animate__fadeInRight coded">
+      +Nicolas +Zahi +Thomas +Yankel +Jérome
+    </div>
+    <p class="animate__animated animate__fadeInLeft">
+      Mais ce n'est pas fini. Vous devez trouver le prochain mot de passe en conservant le même ordre mais en recalculant vos codes respectifs. Pour ce faire, vous devrez trouver la formule qui permet de passer de votre ancien code au nouveau en sachant que :
+    </p>
+    <div class="animate__animated animate__fadeInRight coded">
+      Zahi: 15 =&gt; 17<br>
+      Thomas: 21 =&gt; 33
+    </div>
+    <p class="animate__animated animate__fadeInLeft">
+      <i>Indice: Jour/Mois de naissance.</i>
+    </p>
+    <form class="animate__animated animate__fadeInUp">
+      <input type="hidden" name="user" value="{{.Code}}" />
+      <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
+      <label for="guess">Mot de passe :</label>
+      <input type="password" id="guess" name="guess" />
+      <input type="submit" value="Envoyer" />
+    </form>
+  </body>
+</html>

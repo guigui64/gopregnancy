@@ -4,6 +4,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -15,8 +16,11 @@ import (
 // parsed passwords
 var passwords []string
 
+// parsed speech
+var speech []string
+
 // html templates
-var templates = template.Must(template.ParseFiles("index.html", "good0.html", "good1.html", "wrong.html", "404.html", "end.html"))
+var templates = template.Must(template.ParseFiles("step0.html", "step1.html", "step2.html", "step3.html", "wrong.html", "404.html", "end.html"))
 
 // template struct
 type Page struct {
@@ -31,12 +35,19 @@ type Page struct {
 	CurrentStep    int
 }
 
-func parsePasswords() {
+func parseFiles() {
 	content, err := ioutil.ReadFile("passwords.txt")
 	if err != nil {
 		log.Panic(err)
 	}
 	passwords = strings.Split(string(content), "\n")
+	passwords = passwords[:len(passwords)-1]
+	content, err = ioutil.ReadFile("discours.txt")
+	if err != nil {
+		log.Panic(err)
+	}
+	speech = strings.Split(string(content), "\n")
+	speech = speech[:len(speech)-1]
 }
 
 // Shift letters
@@ -77,10 +88,11 @@ func notFound(w http.ResponseWriter, reason string) {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	src := "index"
 	q := r.URL.Query()
 	name, ok := q["user"]
 	if !ok {
-		notFound(w, "No user specified")
+		http.ServeFile(w, r, "index.html")
 		return
 	}
 	p, err := loadPage(name[0])
@@ -88,45 +100,59 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		notFound(w, err.Error())
 		return
 	}
-	src := "index"
+	src = "step0"
 	step := q.Get("step")
 	guess := q.Get("guess")
 	p.Guess = guess
+	wrong := false
 	switch step {
 	case p.Steps[0]:
 		guessN, _ := strconv.Atoi(guess)
 		if guessN == int(p.Offset) {
 			p.CurrentStep = 1
-			src = "good0"
 		} else {
 			p.CurrentStep = 0
 			p.Guess = shift(p.CodedMessage, byte(guessN))
-			src = "wrong"
+			wrong = true
 		}
 	case p.Steps[1]:
 		if guess == passwords[0] {
 			p.CurrentStep = 2
-			src = "good1"
 		} else {
 			p.CurrentStep = 1
-			src = "wrong"
+			wrong = true
 		}
 	case p.Steps[2]:
 		if guess == passwords[1] {
-			p.CurrentStep = 2
-			src = "end"
+			p.CurrentStep = 3
 		} else {
 			p.CurrentStep = 2
-			src = "wrong"
+			wrong = true
 		}
+	case p.Steps[3]:
+		p.CurrentStep = 4
+		for i, word := range speech {
+			g := strings.TrimSpace(q.Get(strconv.Itoa(i + 1)))
+			guess += g + "/"
+			if g != word {
+				p.CurrentStep = 3
+				wrong = true
+			}
+		}
+		p.Guess = guess
+	}
+	if wrong {
+		src = "wrong"
+	} else {
+		src = fmt.Sprintf("step%d", p.CurrentStep)
 	}
 	log.Printf("[%s] step=%d guess=%s res=%s", name, p.CurrentStep, guess, src)
 	renderTemplate(w, p, src)
 }
 
 func main() {
-	log.Println("Parsing passwords file...")
-	parsePasswords()
+	log.Println("Parsing files...")
+	parseFiles()
 
 	log.Println("Starting server...")
 	http.HandleFunc("/", handler)

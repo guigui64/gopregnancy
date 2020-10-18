@@ -46,8 +46,10 @@
         {{.Guess}} ? Ça ne veut rien dire ! Tu as dû te tromper dans ton calcul, essaye encore !
       {{else if eq .CurrentStep 1}}
         {{.Guess}} n'est pas le bon mot de passe. Avez-vous bien fait attention à l'ordre d'apparition des <strong>prénoms</strong> dans la vidéo ? Essayez encore !
-      {{else}}
+      {{else if eq .CurrentStep 2}}
         {{.Guess}} n'est pas le bon mot de passe. Vous avez dû vous tromper dans les calculs. Un indice: 27/02 =&gt; -3/+5
+      {{else}}
+        Hélas ce n'est pas la bonne réponse...
       {{end}}
     </p>
     <p class="animate__animated animate__fadeInUp">

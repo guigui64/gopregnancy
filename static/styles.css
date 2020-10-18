@@ -34,6 +34,7 @@ h1 {
 
 .speech {
     font-style: italic;
+    text-align: justify;
     padding: 0 15%;
 }
 

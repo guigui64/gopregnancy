@@ -29,4 +29,11 @@ Step 3 - Discours
 1 discours pompeux
 2 n'existe plus
 3 équations
-
+4 lignes de code
+5 BG10
+6 Cannes
+7 Toulon
+8 Amsterdam
+9 Berlin
+10 Madrid
+11 courage
