@@ -7,10 +7,6 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
@@ -44,27 +40,15 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <h2 class="animate__animated animate__tada good">Bien joué {{.User}} !!</h2>
-    <p class="animate__animated animate__fadeInLeft">
-      Tu as trouvé la bonne réponse ! J'ai toujours cru en toi :)
-    </p>
-    <div class="animate__animated animate__fadeInRight coded">
-      {{.DecodedMessage}}
-    </div>
-    <p class="animate__animated animate__fadeInLeft">
-      Ton code est donc <strong>{{.Offset | printf "%02d"}}</strong>
-    </p>
-    <p class="animate__animated animate__fadeInRight">
-      Il faut maintenant faire équipe pour trouver le mot de passe suivant. Vous
-      le trouverez en assemblant vos codes dans l'ordre dans lequel vos prénoms
-      apparaissent dans la vidéo de l'EVG.
-    </p>
-    <form class="animate__animated animate__fadeInUp">
+    <h2 class="animate__animated animate__tada good">Encore bien joué les guindouls !!</h2>
+    <p class="animate__animated animate__fadeInLeft">Mais ce n'est pas fini ! Voici un texte à trou que vous allez vite reconnaître je pense. Si vous arrivez à le compléter sans aller voir dans vos archives, chapeau 🎩</p>
+    <form class="animate__animated animate__fadeInRight speech">
       <input type="hidden" name="user" value="{{.Code}}" />
       <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
-      <label for="guess">Mot de passe :</label>
-      <input type="password" id="guess" name="guess" />
-      <input type="submit" value="Envoyer" />
+      Bien, c'est l'heure du <input type="text" name="1" />, si vous voulez bien faire un peu de silence.<br>
+      ...<br>
+      Fraîchement accepté à la prestigieuse école d’ingénieur ENSICA, qui <input type="text" name="2" />... Tu étais prêt à découvrir la vie , la vraie, pas celle qu’on apprenait dans les <input type="text" name="3" /> en prépa...<br>
+      <br><input type="submit" value="Envoyer" />
     </form>
   </body>
 </html>

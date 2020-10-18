@@ -24,3 +24,9 @@ IV 01/07 => +23/+0 => +23 => 32
 V 05/05 => +19/+2 => +21 => 43
 43 17 33 32 25
 Password: 4317333225
+
+Step 3 - Discours
+1 discours pompeux
+2 n'existe plus
+3 équations
+

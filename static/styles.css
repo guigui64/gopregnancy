@@ -32,6 +32,11 @@ h1 {
     color: green;
 }
 
+.speech {
+    font-style: italic;
+    padding: 0 15%;
+}
+
 #surprise {
     display: none;
     text-align: center;
