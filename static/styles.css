@@ -1,44 +1,114 @@
 body {
-    font-family: 'Roboto Slab';
-    font-size: 22px;
-    padding: 20px 15%;
-    background-color: #f9e3bc;
-    color: #ab7615;
+  font-family: "Roboto Slab";
+  font-size: 22px;
+  padding: 20px 15%;
+  background-color: #f9e3bc;
+  color: #ab7615;
 }
 
 h1 {
-    color: #8c6111;
+  color: #8c6111;
 }
 
 .coded {
-    font-family: 'VT323', monospace;
-    font-size: 30px;
-    background-color: black;
-    color: limegreen;
-    display: inline-block;
+  font-family: "VT323", monospace;
+  font-size: 30px;
+  background-color: black;
+  color: limegreen;
+  display: inline-block;
 }
 
 .with-margin {
-    margin-bottom: 22px;
+  margin-bottom: 22px;
 }
 
 .wrong {
-    text-align: center;
-    color: red;
+  text-align: center;
+  color: red;
 }
 
 .good {
-    text-align: center;
-    color: green;
+  text-align: center;
+  color: green;
 }
 
 .speech {
-    font-style: italic;
-    text-align: justify;
-    padding: 0 15%;
+  font-style: italic;
+  text-align: justify;
+  padding: 0 15%;
 }
 
 #surprise {
-    display: none;
-    text-align: center;
+  display: none;
+  text-align: center;
+}
+
+.game {
+    box-sizing: border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  width: 680px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 140px;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  perspective: 700px;
+}
+
+.flipped, .has-match {
+  pointer-events: none;
+}
+
+.card-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #f27922;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  transition: transform 400ms;
+}
+
+.back {
+  z-index: 1;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.has-match .back {
+  transform: rotateY(180deg);
+}
+
+.flipped .back {
+  transform: rotateY(180deg);
+}
+
+.has-match .front {
+  transform: rotateY(360deg);
+}
+
+.flipped .front {
+  transform: rotateY(360deg);
+}
+
+.no-event {
+  pointer-events: none;
 }

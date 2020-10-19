@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Enigma - Surprise</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Slab"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/static/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/static/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/static/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <h1 class="animate__animated animate__fadeInDown">
+      Félicitations {{.User}} !!!
+    </h1>
+    <p class="animate__animated animate__fadeInLeft">
+      Tu as été exceptionel ! Tu mérites donc bien ta récompense.
+    </p>
+    <p class="animate__animated animate__fadeInRight">
+      <button onclick="showSurprise()">
+        La surprise, la surprise, la surprise !
+      </button>
+    </p>
+    <div class="animate__animated animate__fadeInUp" id="surprise">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYtfZRhbGQtq2BapB2MXJfWIO2QriO5Wx3qQ&usqp=CAU"
+        alt="surprise"
+      />
+      <p>Et oui, Cécile et moi attendons un enfant 👶</p>
+      <p>La naissance est prévue le 02 mai 2021 😀</p>
+      <p>Tu peux si tu veux essayer de deviner le prénom (un par sexe - même pour Jérome) :</p>
+      <form>
+          <input type="hidden" name="user" value="{{.Code}}" />
+          <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
+          <label for="boy">♂️ : </label><input type="text" id="boy" name="boy" /><br>
+          <label for="girl">♀️ : </label><input type="text" id="girl" name="girl" /><br><br>
+          <input type="submit" value="Envoyer" />
+      </form>
+    </div>
+    <script>
+      function showSurprise() {
+        document.getElementById("surprise").style.display = "block";
+        document
+          .getElementsByTagName("button")[0]
+          .setAttribute("disabled", "true");
+        document.getElementsByTagName("h1")[0].textContent = "Félicitations tonton {{.User}} !!!"
+      }
+    </script>
+  </body>
+</html>

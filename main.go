@@ -20,7 +20,7 @@ var passwords []string
 var speech []string
 
 // html templates
-var templates = template.Must(template.ParseFiles("step0.html", "step1.html", "step2.html", "step3.html", "wrong.html", "404.html", "end.html"))
+var templates = template.Must(template.ParseFiles("step0.html", "step1.html", "step2.html", "step3.html", "step4.html", "step5.html", "wrong.html", "404.html", "end.html"))
 
 // template struct
 type Page struct {
@@ -140,13 +140,18 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 		p.Guess = guess
+	case p.Steps[4]:
+		p.CurrentStep = 5
+	case p.Steps[5]:
+		guess = q.Get("boy") + "/" + q.Get("girl")
+		src = "end"
 	}
 	if wrong {
 		src = "wrong"
-	} else {
+	} else if src != "end" {
 		src = fmt.Sprintf("step%d", p.CurrentStep)
 	}
-	log.Printf("[%s] step=%d guess=%s res=%s", name, p.CurrentStep, guess, src)
+	log.Printf("[%s] step=%d guess=%s res=%s", p.User, p.CurrentStep, guess, src)
 	renderTemplate(w, p, src)
 }
 

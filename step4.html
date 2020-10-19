@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>Enigma - {{.User}}</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Slab"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="/static/styles.css" rel="stylesheet" />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/static/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/static/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/static/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <h2 class="animate__animated animate__tada good">Bonnes réponses !</h2>
+    <p class="animate__animated animate__fadeInLeft">
+      Quel beau discours, c'était trop bien franchement, vous m'avez tellement
+      fait kiffer je vous remercierai jamais assez !
+    </p>
+    <p class="animate__animated animate__fadeInRight">
+      Maintenant, je vous propose un petit jeu de memory, un classique mais avec
+      des photos qui devraient vous plaire 😉. Il faudra le résoudre en <strong>30</strong> clics maximum !
+    </p>
+    <p class="animate__animated animate__fadeInLeft">
+      Normalement, tu es <i>{{.User}}</i>. Si non, c'est que vous vous êtes échangé les liens et c'est
+      bien dommage car il s'agit ici de la dernière épreuve avant la fin et c'est donc une course entre
+      vous 5 qui vient de démarrer 😈. Que le meilleur gagne ! 🏁
+    </p>
+    <p class="animate__animated animate__fadeInRight">
+      Compteur de clics : <strong id="count">0</strong>
+    <div class="animate__animated animate__fadeInUp game">
+      <div class="cards">
+        <div class="card" data-pic="zahi">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/zahi.png" alt="zahi" /></div>
+        </div>
+        <div class="card" data-pic="yankel">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/yankel.png" alt="yankel" /></div>
+        </div>
+        <div class="card" data-pic="thomas">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/thomas.png" alt="thomas" /></div>
+        </div>
+        <div class="card" data-pic="terrorists">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/terrorists.png" alt="terrorists" /></div>
+        </div>
+        <div class="card" data-pic="team">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/team.png" alt="team" /></div>
+        </div>
+        <div class="card" data-pic="nico">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/nico.png" alt="nico" /></div>
+        </div>
+        <div class="card" data-pic="jerome">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/jerome.png" alt="jerome" /></div>
+        </div>
+        <div class="card" data-pic="118218">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/118218.png" alt="118218" /></div>
+        </div>
+        <div class="card" data-pic="zahi">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/zahi.png" alt="zahi" /></div>
+        </div>
+        <div class="card" data-pic="yankel">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/yankel.png" alt="yankel" /></div>
+        </div>
+        <div class="card" data-pic="thomas">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/thomas.png" alt="thomas" /></div>
+        </div>
+        <div class="card" data-pic="terrorists">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/terrorists.png" alt="terrorists" /></div>
+        </div>
+        <div class="card" data-pic="team">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/team.png" alt="team" /></div>
+        </div>
+        <div class="card" data-pic="nico">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/nico.png" alt="nico" /></div>
+        </div>
+        <div class="card" data-pic="jerome">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/jerome.png" alt="jerome" /></div>
+        </div>
+        <div class="card" data-pic="118218">
+          <div class="card-side back"></div>
+          <div class="card-side front"><img src="static/memo/120x120/118218.png" alt="118218" /></div>
+        </div>
+      </div>
+    </div>
+    <form id="form" style="display: none;">
+      <input type="hidden" name="user" value="{{.Code}}" />
+      <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
+      <input type="submit" value="Envoyer" />
+    </form>
+    <script src="static/memo/memo.js"></script>
+  </body>
+</html>
