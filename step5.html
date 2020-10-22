@@ -53,17 +53,18 @@
     </p>
     <div class="animate__animated animate__fadeInUp" id="surprise">
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYtfZRhbGQtq2BapB2MXJfWIO2QriO5Wx3qQ&usqp=CAU"
+        src="/static/surprise.jpg"
         alt="surprise"
+        width="70%"
       />
-      <p>Et oui, Cécile et moi attendons un enfant 👶</p>
+      <p>Et oui, Cécile et moi attendons un enfant !! 👶</p>
       <p>La naissance est prévue le 02 mai 2021 😀</p>
       <p>Tu peux si tu veux essayer de deviner le prénom (un par sexe - même pour Jérome) :</p>
       <form>
           <input type="hidden" name="user" value="{{.Code}}" />
           <input type="hidden" name="step" value="{{index .Steps .CurrentStep}}" />
-          <label for="boy">♂️ : </label><input type="text" id="boy" name="boy" /><br>
-          <label for="girl">♀️ : </label><input type="text" id="girl" name="girl" /><br><br>
+          <label for="boy">♂️ : </label><input type="text" id="boy" name="boy" required><br>
+          <label for="girl">♀️ : </label><input type="text" id="girl" name="girl" required><br><br>
           <input type="submit" value="Envoyer" />
       </form>
     </div>
