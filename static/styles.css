@@ -43,6 +43,12 @@ h1 {
   text-align: center;
 }
 
+.video {
+  text-align: center;
+}
+
+/* memo game */
+
 .game {
     box-sizing: border;
   display: flex;
