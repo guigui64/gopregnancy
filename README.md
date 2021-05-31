@@ -9,5 +9,5 @@ Simple HTTP server using Golang packages [`html/template`](https://pkg.go.dev/ht
 ## How to run
 
 ```bash
-cd gopregnancy && go run
+cd gopregnancy && go run main.go
 ```
