@@ -56,7 +56,7 @@ func shift(s string, offset byte) string {
 	for i, bi := range b {
 		if 'A' <= bi && bi <= 'Z' {
 			b[i] += offset
-			b[i] = (b[i]-'A')%('Z'-'A') + 'A'
+			b[i] = (b[i]-'A')%('Z'-'A'+1) + 'A'
 		}
 	}
 	return string(b)
